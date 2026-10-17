@@ -194,10 +194,26 @@
             carousel.addEventListener('mouseenter',()=>clearInterval(timer));carousel.addEventListener('mouseleave',restartTimer);carousel.addEventListener('focusin',()=>clearInterval(timer));carousel.addEventListener('focusout',restartTimer);
             showSlide(0);restartTimer();window.addEventListener('resize',()=>showSlide(index));
             const form=document.getElementById('registration-form'),status=document.getElementById('form-status');
+            const submitButton=document.getElementById('submit-button');
             const fields=['nama_lengkap','nim','fakultas','no_whatsapp','email','bidang_minat'];
+            const SUPABASE_URL='https://agegoohjriqwldyxcmkk.supabase.co';
+            const SUPABASE_PUBLISHABLE_KEY='sb_publishable_nXHHm_JSdos4Zfna2-Iajg_E8fNZEw-';
             fields.forEach(id=>{const input=document.getElementById(id);input.addEventListener('input',()=>{document.getElementById(id+'-error').textContent='';input.removeAttribute('aria-invalid')})});
             document.getElementById('agreement').addEventListener('change',()=>document.getElementById('agreement-error').textContent='');
-            form.addEventListener('submit',event=>{event.preventDefault();let first=null,valid=true;fields.forEach(id=>{const input=document.getElementById(id),value=input.value.trim();let msg='';if(!value)msg='Wajib diisi.';else if(id==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))msg='Masukkan alamat email yang valid.';else if(id==='no_whatsapp'&&!/^\+?[\d\s().-]{9,20}$/.test(value))msg='Masukkan nomor WhatsApp yang valid.';else if(id==='nim'&&!/^[a-zA-Z0-9./-]{4,30}$/.test(value))msg='Masukkan NIM yang valid (minimal 4 karakter).';document.getElementById(id+'-error').textContent=msg;input.setAttribute('aria-invalid',String(!!msg));if(msg){valid=false;if(!first)first=input}});const agreement=document.getElementById('agreement');document.getElementById('agreement-error').textContent=agreement.checked?'':'Centang persetujuan untuk melanjutkan.';if(!agreement.checked){valid=false;if(!first)first=agreement}if(!valid){first.focus();return}document.getElementById('success-name').textContent=document.getElementById('nama_lengkap').value.trim();form.classList.add('hidden');document.getElementById('success-panel').classList.remove('hidden');document.getElementById('success-panel').focus();status.textContent=''});
+            form.addEventListener('submit',async event=>{
+                event.preventDefault(); status.textContent=''; let first=null,valid=true;
+                fields.forEach(id=>{const input=document.getElementById(id),value=input.value.trim();let msg='';if(!value)msg='Wajib diisi.';else if(id==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))msg='Masukkan alamat email yang valid.';else if(id==='no_whatsapp'&&!/^\+?[\d\s().-]{9,20}$/.test(value))msg='Masukkan nomor WhatsApp yang valid.';else if(id==='nim'&&!/^[a-zA-Z0-9./-]{4,30}$/.test(value))msg='Masukkan NIM yang valid (minimal 4 karakter).';document.getElementById(id+'-error').textContent=msg;input.setAttribute('aria-invalid',String(!!msg));if(msg){valid=false;if(!first)first=input}});
+                const agreement=document.getElementById('agreement');document.getElementById('agreement-error').textContent=agreement.checked?'':'Centang persetujuan untuk melanjutkan.';if(!agreement.checked){valid=false;if(!first)first=agreement}if(!valid){first.focus();return}
+                submitButton.disabled=true;submitButton.setAttribute('aria-busy','true');status.className='mt-4 min-h-6 text-sm font-semibold text-[#176a61]';status.textContent='Mengirim pendaftaran…';
+                // Tabel SQL saat ini menyimpan tiga kolom ini. Kolom NIM/fakultas/bidang belum disimpan.
+                const payload={nama:document.getElementById('nama_lengkap').value.trim(),email:document.getElementById('email').value.trim(),no_whatsapp:document.getElementById('no_whatsapp').value.trim()};
+                try{
+                    const response=await fetch(SUPABASE_URL+'/rest/v1/pendaftaran',{method:'POST',headers:{'Content-Type':'application/json','apikey':SUPABASE_PUBLISHABLE_KEY,'Authorization':'Bearer '+SUPABASE_PUBLISHABLE_KEY,'Prefer':'return=minimal'},body:JSON.stringify(payload)});
+                    if(!response.ok){const detail=await response.text();console.error('Supabase insert error:',response.status,detail);throw new Error('Pendaftaran gagal disimpan ('+response.status+'). Periksa konfigurasi Supabase.')}
+                    document.getElementById('success-name').textContent=payload.nama;form.classList.add('hidden');const panel=document.getElementById('success-panel');panel.classList.remove('hidden');panel.focus();
+                }catch(error){status.className='mt-4 min-h-6 text-sm font-semibold text-[#9d2929]';status.textContent=error.message||'Pendaftaran belum terkirim. Periksa koneksi dan coba lagi.'}
+                finally{submitButton.disabled=false;submitButton.removeAttribute('aria-busy')}
+            });
         </script>
     </body>
 </html>
