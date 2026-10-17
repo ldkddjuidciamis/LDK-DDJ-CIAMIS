@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pendaftaran LDK DDJ</title>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght,SOFT,WONK@9..144,600,30,1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <style>
+        :root{--ink:#101112;--muted:#adb1b0;--teal:#70ded0;--lime:#dcf37a;--coral:#ff947e;--lavender:#b8a8ef}
+        html{scroll-behavior:smooth;scroll-padding-top:100px}
+        body{font-family:"DM Sans",sans-serif;background:var(--ink);color:#f8f8f4;margin:0}
+        button,a,input,select{ -webkit-tap-highlight-color:transparent}
+        :focus-visible{outline:3px solid var(--lime);outline-offset:4px}
+        .display{letter-spacing:-.065em;line-height:1.04}
+        .hero-glow{background:radial-gradient(ellipse at 50% 100%,rgba(93,207,190,.12),transparent 56%)}
+        .hero-section{min-height:0;overflow:hidden;padding-top:8rem;scroll-margin-top:90px}
+        section{scroll-margin-top:100px}
+        .animate-section{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s cubic-bezier(.22,1,.36,1)}
+        .animate-section.is-visible{opacity:1;transform:translateY(0)}
+        .canva-button,.canva-card{transition:transform .3s ease,box-shadow .3s ease,filter .3s ease}
+        .canva-button:hover{transform:translateY(-2px);box-shadow:0 12px 26px #0003}
+        .canva-card:hover{transform:translateY(-4px);box-shadow:0 20px 38px #0003}
+        .art-stage{height:310px;perspective:850px}
+        .art-card{position:absolute;bottom:-58px;width:34%;height:260px;border-radius:32px;overflow:hidden;box-shadow:0 30px 70px #0009;animation:float-card 8s ease-in-out infinite}
+        @keyframes float-card{0%,100%{margin-top:0}50%{margin-top:-8px}}
+        .art-card::after{content:"";position:absolute;inset:auto -20% -30% -20%;height:56%;background:radial-gradient(ellipse,#fff8,transparent 65%);opacity:.3}
+        .art-left{left:5%;transform:rotate(-13deg) translateY(30px);background:#b8a8ef;animation-delay:-1.2s}
+        .art-midleft{left:22%;transform:rotate(-6deg) translateY(12px);background:#ff947e;animation-delay:-2.4s}
+        .art-right{right:5%;transform:rotate(13deg) translateY(30px);background:#dcf37a;animation-delay:-4.8s}
+        .art-midright{right:22%;transform:rotate(6deg) translateY(12px);background:#92b8ef;animation-delay:-3.6s}
+        .art-center{left:33%;z-index:3;transform:translateY(-16px);background:#70ded0;animation-delay:-6s}
+        .art-orbit{position:absolute;width:150px;height:150px;left:50%;top:25%;transform:translateX(-50%) rotate(-25deg);border:25px solid #122a2b;border-radius:48% 52% 52% 48%;box-shadow:inset 12px 10px 0 #ffffff50,18px 18px 0 #163c3b44}
+        .art-orbit:before{content:"";position:absolute;width:72px;height:72px;border-radius:50%;background:#f9f1cf;top:14px;left:17px;box-shadow:inset -12px -10px 0 #b3e2d3}
+        .art-star{position:absolute;font-size:76px;line-height:1;color:#fff7dc;text-shadow:7px 10px 0 #23232a33}
+        .art-ring{position:absolute;width:125px;height:125px;border:24px solid #472e44;border-radius:44%;top:35%;left:20%;transform:rotate(25deg)}
+        .photo-slot{width:100%;}
+        .photo-image{z-index:2;}
+        .logo-photo-slot img{z-index:2;background:#f1f5ed;}
+        .activity-track{display:flex;gap:clamp(12px,3vw,32px);position:relative;transition:transform .55s cubic-bezier(.22,1,.36,1);will-change:transform}
+        .activity-viewport{overflow:hidden;padding:18px clamp(34px,8vw,110px) 22px;margin:-18px calc(-1 * clamp(34px,8vw,110px)) -22px}
+        .activity-slide{flex:0 0 clamp(72%,78vw,820px);min-width:0;position:relative;opacity:.68;filter:blur(1px) brightness(.86);transform:scale(.9);transition:transform .55s cubic-bezier(.22,1,.36,1),opacity .55s ease,filter .55s ease;z-index:1}
+        .activity-slide.is-active{opacity:1;filter:none;transform:scale(1);z-index:3}
+        .activity-slide.is-prev,.activity-slide.is-next{opacity:.72;filter:blur(1px) brightness(.86);transform:scale(.9);z-index:2}
+        .field{width:100%;box-sizing:border-box;border:1px solid #d5ded9;background:#fff;color:#172321;border-radius:16px;padding:14px 16px;outline:none;transition:border-color .2s,box-shadow .2s}
+        .field:focus{border-color:#167d76;box-shadow:0 0 0 4px #70ded044}
+        .field[aria-invalid="true"]{border-color:#b63635}
+        .field-error{min-height:19px;color:#a92c2c;font-size:13px;margin-top:5px}
+        .reveal{animation:rise .7s both}
+        @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+        #success-panel{animation:success-pop .65s cubic-bezier(.22,1,.36,1) both}
+        @keyframes success-pop{from{opacity:0;transform:scale(.96) translateY(14px)}to{opacity:1;transform:scale(1) translateY(0)}}
+        .script-accent{font-family:Fraunces,serif;font-style:italic;font-weight:600;letter-spacing:-.07em}
+        @media(max-width:640px){
+        .hero-section{padding-top:6.5rem}
+        .display{font-size:clamp(2.5rem,10vw,3.5rem)!important;line-height:1.02!important}
+        .art-stage{height:225px}
+        .art-card{height:196px;border-radius:23px;bottom:-38px}
+        .art-orbit{width:90px;height:90px;border-width:16px}
+        .art-orbit:before{width:39px;height:39px;top:11px;left:11px}
+        .art-star{font-size:50px}
+        .art-ring{width:75px;height:75px;border-width:15px}
+        .activity-viewport{padding-left:28px;padding-right:28px;margin-left:-28px;margin-right:-28px}
+        .activity-slide{flex-basis:calc(100vw - 112px)}
+        }
+        @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal,.art-card,#success-panel{animation:none}.art-card{transition:none}.animate-section{opacity:1;transform:none;transition:none}.activity-track,.activity-slide{transition:none}}
+    </style>
+    </head>
+    <body class="min-h-screen overflow-x-hidden">
+        <!-- Floating navbar: stays visible while scrolling -->
+        <header id="site-header" class="fixed inset-x-0 top-0 z-50 px-4 pt-3 md:px-8">
+            <div class="relative mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-full border border-white/10 bg-[#101112]/90 px-4 py-3 shadow-xl shadow-black/10 backdrop-blur-xl md:px-6">
+                <a href="#beranda" class="inline-flex shrink-0 items-center gap-2 text-white">
+                    <img src="Logo_LDK_DDJ.png" alt="Logo LDK DDJ" class="h-[34px] w-[34px] shrink-0 rounded-full object-contain" onerror="this.style.display='none'">
+                    <span class="text-lg font-medium tracking-tight md:text-xl">LDK DDJ</span>
+                </a>
+                <nav aria-label="Navigasi utama" class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 rounded-full border border-white/10 bg-white/[.05] p-1 md:flex">
+                    <a href="#beranda" class="rounded-full px-4 py-2 text-sm text-white transition hover:bg-white/10">Beranda</a>
+                    <a href="#tentang" class="rounded-full px-4 py-2 text-sm text-white transition hover:bg-white/10">Tentang LDK</a>
+                    <a href="#kegiatan" class="rounded-full px-4 py-2 text-sm text-white transition hover:bg-white/10">Kegiatan</a>
+                    <a href="#faq" class="rounded-full px-4 py-2 text-sm text-white transition hover:bg-white/10">FAQ</a>
+                </nav>
+                <a href="#pendaftaran" class="hidden shrink-0 rounded-full bg-[#f8f8f4] px-5 py-2.5 text-sm font-medium text-[#101112] transition hover:bg-[#dcf37a] md:inline-flex">Daftar Sekarang</a>
+                <button id="menu-toggle" type="button" aria-controls="mobile-nav" aria-expanded="false" aria-label="Buka menu navigasi" class="rounded-full border border-white/20 p-2.5 text-white transition hover:bg-white/10 md:hidden">
+                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+                </button>
+            </div>
+            <nav id="mobile-nav" aria-label="Navigasi mobile" class="hidden mx-auto mt-2 max-w-7xl rounded-2xl border border-white/10 bg-[#181b1a]/95 p-3 shadow-xl backdrop-blur-xl md:hidden">
+                <div class="flex flex-col gap-1">
+                    <a href="#beranda" class="rounded-xl px-4 py-3 text-white hover:bg-white/10">Beranda</a>
+                    <a href="#tentang" class="rounded-xl px-4 py-3 text-white hover:bg-white/10">Tentang LDK</a>
+                    <a href="#kegiatan" class="rounded-xl px-4 py-3 text-white hover:bg-white/10">Kegiatan</a>
+                    <a href="#faq" class="rounded-xl px-4 py-3 text-white hover:bg-white/10">FAQ</a>
+                    <a href="#pendaftaran" class="mt-1 rounded-full bg-[#dcf37a] px-4 py-3 text-center font-semibold text-[#101112]">Daftar Sekarang ↗</a>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section id="beranda" class="hero-section hero-glow relative overflow-hidden">
+            <div class="mx-auto max-w-6xl px-5 text-center md:px-10">
+                <span class="reveal inline-block rounded-full border border-[#dcf37a]/35 bg-[#dcf37a]/10 px-4 py-2 text-xs font-bold tracking-[.18em] text-[#dcf37a]">OPEN REGISTRATION 2026</span>
+                <h1 class="display reveal mx-auto mt-7 max-w-5xl text-5xl font-normal md:text-7xl" style="animation-delay:.12s">Temukan Peranmu di LDK DDJ</h1>
+                <p class="reveal mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#c4c9c6]" style="animation-delay:.16s">Bertumbuh dalam iman, berkontribusi di kampus, dan terhubung dengan lingkungan yang menguatkan.</p>
+                <div class="reveal mt-8 flex flex-wrap justify-center gap-3" style="animation-delay:.24s">
+                    <a href="#pendaftaran" class="canva-button rounded-full bg-[#dcf37a] px-7 py-4 text-base font-semibold text-[#101112]">Mulai Pendaftaran ↗</a>
+                    <a href="#tentang" class="canva-button rounded-full border border-white/25 px-7 py-4 text-base font-semibold text-white hover:bg-white/10">Kenali LDK DDJ</a>
+                </div>
+            <div class="art-stage relative mx-auto mt-12 max-w-4xl" aria-hidden="true">
+                <div class="art-card art-left"><span class="art-star absolute right-4 top-10">✳</span></div>
+                <div class="art-card art-midleft"><div class="art-ring"></div></div>
+                <div class="art-card art-midright"><span class="art-star absolute left-7 top-16">✦</span></div>
+                <div class="art-card art-right"><div class="art-ring"></div></div>
+                <div class="art-card art-center"><div class="art-orbit"></div><span class="art-star absolute bottom-5 right-5" style="color:#e3f56f">✳</span></div>
+                </div>
+            </div>
+            </section>
+            <section id="tentang" class="relative z-10 bg-[#181b1a] px-5 py-20 md:px-10 md:py-28">
+                <div class="mx-auto max-w-6xl">
+                    <p class="mb-4 text-xs font-bold uppercase tracking-[.18em] text-[#70ded0]">SEBUAH TEMPAT UNTUK BERTUMBUH</p>
+                    <h2 class="display max-w-2xl text-4xl font-normal md:text-5xl">Mengapa bergabung?</h2>
+                    <p class="mt-5 max-w-2xl leading-relaxed text-[#c4c9c6]">Di LDK DDJ, langkah kecilmu bisa menjadi awal dari pertemanan, pembelajaran, dan kontribusi yang berarti.</p>
+                    <div id="kegiatan" class="mt-10">
+                      <div id="activity-carousel" class="relative mx-auto max-w-4xl" tabindex="0" aria-roledescription="carousel" aria-label="Galeri kegiatan LDK DDJ">
+                          <div class="activity-viewport rounded-[30px] border border-white/10 shadow-2xl shadow-black/30"><div id="activity-track" class="activity-track">
+                              <figure class="activity-slide"><div class="photo-slot relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-gradient-to-br from-violet-300 to-violet-700"><div class="photo-placeholder absolute inset-0 flex flex-col items-center justify-center gap-3 text-center text-white"><span class="text-5xl">＋</span><span class="rounded-full bg-black/25 px-4 py-2 text-sm font-semibold">Tambahkan foto kegiatan 1</span></div><img src="foto1.jpg" alt="Foto kegiatan LDK DDJ 1" class="photo-image absolute inset-0 h-full w-full object-cover" onerror="this.style.display='none'"></div><figcaption class="bg-[#101112] px-5 py-4 text-center">Kebersamaan anggota</figcaption></figure>
+                              <figure class="activity-slide"><div class="photo-slot relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-gradient-to-br from-orange-200 to-rose-500"><div class="photo-placeholder absolute inset-0 flex flex-col items-center justify-center gap-3 text-center text-white"><span class="text-5xl">＋</span><span class="rounded-full bg-black/25 px-4 py-2 text-sm font-semibold">Tambahkan foto kegiatan 2</span></div><img src="foto2.jpg" alt="Foto kegiatan LDK DDJ 2" class="photo-image absolute inset-0 h-full w-full object-cover" onerror="this.style.display='none'"></div><figcaption class="bg-[#101112] px-5 py-4 text-center">Kolaborasi dan kekompakan</figcaption></figure>
+                              <figure class="activity-slide"><div class="photo-slot relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-gradient-to-br from-sky-200 to-blue-600"><div class="photo-placeholder absolute inset-0 flex flex-col items-center justify-center gap-3 text-center text-white"><span class="text-5xl">＋</span><span class="rounded-full bg-black/25 px-4 py-2 text-sm font-semibold">Tambahkan foto kegiatan 3</span></div><img src="foto3.jpg" alt="Foto kegiatan LDK DDJ 3" class="photo-image absolute inset-0 h-full w-full object-cover" onerror="this.style.display='none'"></div><figcaption class="bg-[#101112] px-5 py-4 text-center">Aktivitas bersama</figcaption></figure>
+                              <figure class="activity-slide"><div class="photo-slot relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-gradient-to-br from-emerald-200 to-teal-600"><div class="photo-placeholder absolute inset-0 flex flex-col items-center justify-center gap-3 text-center text-white"><span class="text-5xl">＋</span><span class="rounded-full bg-black/25 px-4 py-2 text-sm font-semibold">Tambahkan foto kegiatan 4</span></div><img src="foto4.jpg" alt="Foto kegiatan LDK DDJ 4" class="photo-image absolute inset-0 h-full w-full object-cover" onerror="this.style.display='none'"></div><figcaption class="bg-[#101112] px-5 py-4 text-center">Semangat dalam kebersamaan</figcaption></figure>
+                              <figure class="activity-slide"><div class="photo-slot relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-gradient-to-br from-lime-200 to-green-600"><div class="photo-placeholder absolute inset-0 flex flex-col items-center justify-center gap-3 text-center text-white"><span class="text-5xl">＋</span><span class="rounded-full bg-black/25 px-4 py-2 text-sm font-semibold">Tambahkan foto kegiatan 5</span></div><img src="foto5.jpg" alt="Foto kegiatan LDK DDJ 5" class="photo-image absolute inset-0 h-full w-full object-cover" onerror="this.style.display='none'"></div><figcaption class="bg-[#101112] px-5 py-4 text-center">Sahabat seperjuangan</figcaption></figure>
+                              <figure class="activity-slide"><div class="photo-slot relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-gradient-to-br from-pink-200 to-purple-600"><div class="photo-placeholder absolute inset-0 flex flex-col items-center justify-center gap-3 text-center text-white"><span class="text-5xl">＋</span><span class="rounded-full bg-black/25 px-4 py-2 text-sm font-semibold">Tambahkan foto kegiatan 6</span></div><img src="foto6.jpg" alt="Foto kegiatan LDK DDJ 6" class="photo-image absolute inset-0 h-full w-full object-cover" onerror="this.style.display='none'"></div><figcaption class="bg-[#101112] px-5 py-4 text-center">Berani tampil dan berkarya</figcaption></figure>
+                              <figure class="activity-slide"><div class="photo-slot relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-gradient-to-br from-cyan-200 to-indigo-600"><div class="photo-placeholder absolute inset-0 flex flex-col items-center justify-center gap-3 text-center text-white"><span class="text-5xl">＋</span><span class="rounded-full bg-black/25 px-4 py-2 text-sm font-semibold">Tambahkan foto kegiatan 7</span></div><img src="foto7.jpg" alt="Foto kegiatan LDK DDJ 7" class="photo-image absolute inset-0 h-full w-full object-cover" onerror="this.style.display='none'"></div><figcaption class="bg-[#101112] px-5 py-4 text-center">Menjelajah dan bertumbuh</figcaption></figure>
+                              <figure class="activity-slide"><div class="photo-slot relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-gradient-to-br from-yellow-200 to-lime-600"><div class="photo-placeholder absolute inset-0 flex flex-col items-center justify-center gap-3 text-center text-white"><span class="text-5xl">＋</span><span class="rounded-full bg-black/25 px-4 py-2 text-sm font-semibold">Tambahkan foto kegiatan 8</span></div><img src="foto8.jpg" alt="Foto kegiatan LDK DDJ 8" class="photo-image absolute inset-0 h-full w-full object-cover" onerror="this.style.display='none'"></div><figcaption class="bg-[#101112] px-5 py-4 text-center">Langkah bersama LDK DDJ</figcaption></figure>
+                          </div></div>
+                          <button id="activity-prev" type="button" class="canva-button absolute left-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-[#f1f5ed] text-[#101112] shadow-lg" aria-label="Foto sebelumnya">←</button>
+                          <button id="activity-next" type="button" class="canva-button absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-[#f1f5ed] text-[#101112] shadow-lg" aria-label="Foto berikutnya">→</button>
+                          <div id="activity-dots" class="mt-5 flex justify-center gap-2" role="tablist" aria-label="Pilih foto kegiatan"></div>
+                      </div>
+                      <div class="mt-10 grid gap-4 md:grid-cols-3">
+                          <article class="canva-card rounded-[30px] p-7 md:p-8" style="background:#70ded0;color:#102b2a"><div class="mb-10 text-4xl">✳</div><h3 class="text-xl font-bold">Lingkungan yang Menguatkan</h3><p class="mt-3 leading-relaxed">Temukan teman seperjalanan yang saling mendukung dalam belajar dan berproses.</p></article>
+                          <article class="canva-card rounded-[30px] p-7 md:p-8" style="background:#ff947e;color:#35201e"><div class="mb-10 text-4xl">◈</div><h3 class="text-xl font-bold">Ruang untuk Berkarya</h3><p class="mt-3 leading-relaxed">Salurkan ide dan kemampuanmu melalui kegiatan yang memberi manfaat nyata.</p></article>
+                          <article class="canva-card rounded-[30px] p-7 md:p-8" style="background:#b8a8ef;color:#252039"><div class="mb-10 text-4xl">✦</div><h3 class="text-xl font-bold">Bertumbuh Bersama</h3><p class="mt-3 leading-relaxed">Kembangkan diri, kepemimpinan, dan kepedulian bersama komunitas kampus.</p></article>
+                      </div>
+                    </div>
+                </div>
+            </section>
+            <section id="pendaftaran" class="px-5 py-20 md:px-10 md:py-28">
+                <div class="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[.8fr_1.2fr] lg:gap-16">
+                    <div class="lg:pt-10"><span class="inline-block rounded-full bg-[#70ded0] px-4 py-2 text-xs font-bold tracking-wider text-[#102b2a]">SAATNYA MELANGKAH</span><h2 class="display mt-6 text-4xl font-normal md:text-5xl">Mulai ceritamu bersama kami.</h2><p class="mt-5 max-w-md leading-relaxed text-[#c4c9c6]">Isi formulir berikut untuk mendaftar sebagai calon anggota LDK DDJ. Kami menantikan kontribusi dan semangatmu!</p><div class="mt-10 h-1 w-24 rounded-full bg-[#70ded0]"></div></div>
+                    <div class="canva-card rounded-[32px] bg-[#f1f5ed] p-6 text-[#172321] shadow-2xl shadow-black/30 sm:p-9">
+                    <form id="registration-form" novalidate>
+                        <h3 class="mb-7 text-2xl font-bold">Formulir Pendaftaran</h3>
+                        <div class="grid gap-x-5 gap-y-3 sm:grid-cols-2">
+                        <div class="sm:col-span-2"><label for="nama_lengkap" class="mb-2 block text-sm">Nama Lengkap *</label><input id="nama_lengkap" name="nama_lengkap" class="field" autocomplete="name" required maxlength="120"><p id="nama_lengkap-error" class="field-error"></p></div>
+                        <div><label for="nim" class="mb-2 block text-sm">NIM *</label><input id="nim" name="nim" class="field" required maxlength="30"><p id="nim-error" class="field-error"></p></div>
+                        <div><label for="fakultas" class="mb-2 block text-sm">Fakultas / Program Studi *</label><input id="fakultas" name="fakultas" class="field" required maxlength="120"><p id="fakultas-error" class="field-error"></p></div>
+                        <div><label for="no_whatsapp" class="mb-2 block text-sm">Nomor WhatsApp *</label><input id="no_whatsapp" name="no_whatsapp" class="field" type="tel" autocomplete="tel" required maxlength="20"><p id="no_whatsapp-error" class="field-error"></p></div>
+                        <div><label for="email" class="mb-2 block text-sm">Email *</label><input id="email" name="email" class="field" type="email" autocomplete="email" required maxlength="150"><p id="email-error" class="field-error"></p></div>
+                        <div class="sm:col-span-2"><label for="bidang_minat" class="mb-2 block text-sm">Bidang yang Diminati *</label><select id="bidang_minat" name="bidang_minat" class="field" required><option value="">Pilih bidang</option><option>Kaderisasi</option><option>Isu &amp; Keumatan</option><option>Media &amp; Kreatif</option><option>Khairunnisa</option><option>Fundrishing</option></select><p id="bidang_minat-error" class="field-error"></p></div>
+                        </div>
+                        <div class="mt-3 flex items-start gap-3"><input id="agreement" type="checkbox" class="mt-1 h-5 w-5 shrink-0 accent-[#126f68]" required><label for="agreement" class="text-sm leading-relaxed text-[#344440]">Saya bersedia mengikuti proses seleksi pendaftaran LDK DDJ. *</label></div>
+                        <p id="agreement-error" class="field-error ml-8"></p>
+                        <button id="submit-button" type="submit" class="canva-button mt-5 w-full rounded-full bg-[#163f3b] px-7 py-4 font-semibold text-white">Kirim Pendaftaran ↗</button>
+                        <p id="form-status" class="mt-4 min-h-6 text-sm font-semibold" role="alert"></p>
+                    </form>
+                    <div id="success-panel" class="hidden py-8 text-center" role="status" tabindex="-1"><div class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[#daf4d0] text-4xl text-[#12544c]">✓</div><h3 class="text-2xl font-bold text-[#173d38]">Pendaftaran diterima!</h3><p class="mt-4 leading-relaxed text-[#344440]">Terima kasih, <strong id="success-name"></strong>. Data pendaftaranmu sudah kami terima. Sampai jumpa dalam proses seleksi!</p></div>
+                    </div>
+                </div>
+            </section>
+            <section id="faq" class="bg-[#181b1a] px-5 py-20 text-center md:px-10">
+            <div class="mx-auto max-w-3xl"><p class="text-xs font-bold uppercase tracking-[.18em] text-[#70ded0]">KENALI KAMI LEBIH DEKAT</p><h2 class="display mt-4 text-4xl font-normal md:text-5xl">Ada pertanyaan?</h2><p class="mx-auto mt-5 max-w-xl leading-relaxed text-[#c4c9c6]">Pendaftaran ini adalah langkah awal. Setelah datamu diterima, ikuti informasi proses seleksi dari LDK DDJ melalui kontak yang kamu cantumkan.</p>
+                <div class="mx-auto mt-14 flex min-h-64 w-full max-w-md items-center justify-center overflow-hidden rounded-[32px] bg-[#f1f5ed] p-7 sm:p-10"><img src="Logo_LDK_DDJ.png" alt="Logo LDK DDJ" class="block max-h-80 w-full object-contain" onerror="this.style.display='none'"></div>
+            </div>
+            </section>
+        </main>
+        <footer class="border-t border-white/10 px-5 py-10 md:px-10"><div class="mx-auto flex max-w-6xl flex-col gap-6 md:flex-row md:items-center md:justify-between"><div><p class="text-xl">LDK DDJ</p><p class="mt-2 text-[#b9c0bc]">Mari bertumbuh dan berdampak bersama.</p></div><nav aria-label="Navigasi footer" class="flex flex-wrap gap-5 text-[#d9ddda]"><a href="#beranda">Beranda</a><a href="#tentang">Tentang LDK</a><a href="#kegiatan">Kegiatan</a><a href="#faq">FAQ</a></nav></div></footer>
+        <script>
+            const menuButton=document.getElementById('menu-toggle');
+            const mobileNav=document.getElementById('mobile-nav');
+            function closeMenu(){mobileNav.classList.add('hidden');menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Buka menu navigasi')}
+            menuButton.addEventListener('click',()=>{const open=mobileNav.classList.contains('hidden');mobileNav.classList.toggle('hidden',!open);menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Tutup menu navigasi':'Buka menu navigasi')});
+            mobileNav.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
+            document.addEventListener('click',event=>{if(!mobileNav.contains(event.target)&&!menuButton.contains(event.target))closeMenu()});
+            const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}}),{threshold:.12});
+            document.querySelectorAll('main > section').forEach(section=>{section.classList.add('animate-section');observer.observe(section)});
+            const carousel=document.getElementById('activity-carousel'),track=document.getElementById('activity-track');
+            const slides=[...document.querySelectorAll('.activity-slide')],dotsBox=document.getElementById('activity-dots');
+            let index=0,timer;
+            slides.forEach((_,i)=>{const b=document.createElement('button');b.type='button';b.className='h-2.5 w-2.5 rounded-full '+(i===0?'bg-[#70ded0]':'bg-white/30');b.setAttribute('aria-label','Foto '+(i+1));b.setAttribute('aria-selected',String(i===0));b.addEventListener('click',()=>{showSlide(i);restartTimer()});dotsBox.appendChild(b)});
+            const dots=[...dotsBox.children];
+            function showSlide(n){index=(n+slides.length)%slides.length;const active=slides[index],viewport=document.querySelector('.activity-viewport');track.style.transform=`translate3d(${viewport.clientWidth/2-(active.offsetLeft+active.offsetWidth/2)}px,0,0)`;slides.forEach((s,i)=>{s.classList.toggle('is-active',i===index);s.classList.toggle('is-prev',i===(index+slides.length-1)%slides.length);s.classList.toggle('is-next',i===(index+1)%slides.length)});dots.forEach((d,i)=>{d.classList.toggle('bg-[#70ded0]',i===index);d.classList.toggle('bg-white/30',i!==index);d.setAttribute('aria-selected',String(i===index))})}
+            document.getElementById('activity-prev').addEventListener('click',()=>{showSlide(index-1);restartTimer()});
+            document.getElementById('activity-next').addEventListener('click',()=>{showSlide(index+1);restartTimer()});
+            function restartTimer(){clearInterval(timer);if(!matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(()=>showSlide(index+1),5200)}
+            carousel.addEventListener('mouseenter',()=>clearInterval(timer));carousel.addEventListener('mouseleave',restartTimer);carousel.addEventListener('focusin',()=>clearInterval(timer));carousel.addEventListener('focusout',restartTimer);
+            showSlide(0);restartTimer();window.addEventListener('resize',()=>showSlide(index));
+            const form=document.getElementById('registration-form'),status=document.getElementById('form-status');
+            const submitButton=document.getElementById('submit-button');
+            const fields=['nama_lengkap','nim','fakultas','no_whatsapp','email','bidang_minat'];
+            const SUPABASE_URL='https://agegoohjriqwldyxcmkk.supabase.co';
+            const SUPABASE_PUBLISHABLE_KEY='sb_publishable_nXHHm_JSdos4Zfna2-Iajg_E8fNZEw-';
+            fields.forEach(id=>{const input=document.getElementById(id);input.addEventListener('input',()=>{document.getElementById(id+'-error').textContent='';input.removeAttribute('aria-invalid')})});
+            document.getElementById('agreement').addEventListener('change',()=>document.getElementById('agreement-error').textContent='');
+            form.addEventListener('submit',async event=>{
+                event.preventDefault(); status.textContent=''; let first=null,valid=true;
+                fields.forEach(id=>{const input=document.getElementById(id),value=input.value.trim();let msg='';if(!value)msg='Wajib diisi.';else if(id==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))msg='Masukkan alamat email yang valid.';else if(id==='no_whatsapp'&&!/^\+?[\d\s().-]{9,20}$/.test(value))msg='Masukkan nomor WhatsApp yang valid.';else if(id==='nim'&&!/^[a-zA-Z0-9./-]{4,30}$/.test(value))msg='Masukkan NIM yang valid (minimal 4 karakter).';document.getElementById(id+'-error').textContent=msg;input.setAttribute('aria-invalid',String(!!msg));if(msg){valid=false;if(!first)first=input}});
+                const agreement=document.getElementById('agreement');document.getElementById('agreement-error').textContent=agreement.checked?'':'Centang persetujuan untuk melanjutkan.';if(!agreement.checked){valid=false;if(!first)first=agreement}if(!valid){first.focus();return}
+                submitButton.disabled=true;submitButton.setAttribute('aria-busy','true');status.className='mt-4 min-h-6 text-sm font-semibold text-[#176a61]';status.textContent='Mengirim pendaftaran…';
+                // Tabel SQL saat ini menyimpan tiga kolom ini. Kolom NIM/fakultas/bidang belum disimpan.
+                const payload={nama:document.getElementById('nama_lengkap').value.trim(),email:document.getElementById('email').value.trim(),no_whatsapp:document.getElementById('no_whatsapp').value.trim()};
+                try{
+                    const response=await fetch(SUPABASE_URL+'/rest/v1/pendaftaran',{method:'POST',headers:{'Content-Type':'application/json','apikey':SUPABASE_PUBLISHABLE_KEY,'Authorization':'Bearer '+SUPABASE_PUBLISHABLE_KEY,'Prefer':'return=minimal'},body:JSON.stringify(payload)});
+                    if(!response.ok){const detail=await response.text();console.error('Supabase insert error:',response.status,detail);throw new Error('Pendaftaran gagal disimpan ('+response.status+'). Periksa konfigurasi Supabase.')}
+                    document.getElementById('success-name').textContent=payload.nama;form.classList.add('hidden');const panel=document.getElementById('success-panel');panel.classList.remove('hidden');panel.focus();
+                }catch(error){status.className='mt-4 min-h-6 text-sm font-semibold text-[#9d2929]';status.textContent=error.message||'Pendaftaran belum terkirim. Periksa koneksi dan coba lagi.'}
+                finally{submitButton.disabled=false;submitButton.removeAttribute('aria-busy')}
+            });
+        </script>
+    </body>
+</html>
