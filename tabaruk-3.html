@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tabaruk 3 — Formulir Harapan LDK DDJ</title>
+        <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght,SOFT,WONK@9..144,600,30,1&display=swap" rel="stylesheet">
+        <style>
+            :root{--ink:#101112;--muted:#bfc7c2;--teal:#70ded0;--lime:#dcf37a;--coral:#ff947e;--paper:#f1f5ed}
+            *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ink);color:#f8f8f4;font-family:"DM Sans",sans-serif}
+            .display{letter-spacing:-.065em;line-height:1.03}.script{font-family:Fraunces,serif;font-style:italic}
+            .glow{background:radial-gradient(ellipse at 50% 30%,#70ded018,transparent 60%)}
+            .field{width:100%;border:1px solid #d5ded9;background:white;color:#172321;border-radius:15px;padding:14px 15px;outline:none;transition:.2s}
+            .field:focus{border-color:#167d76;box-shadow:0 0 0 4px #70ded044}
+            .field[aria-invalid=true]{border-color:#b63635}.field-error{min-height:17px;color:#a92c2c;font-size:12px;margin-top:4px}
+            .fade{animation:rise .7s both}@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+            @media(prefers-reduced-motion:reduce){.fade{animation:none;html{scroll-behavior:auto}}}
+        </style>
+    </head>
+    <body class="min-h-screen overflow-x-hidden">
+        <header class="fixed inset-x-0 top-0 z-20 px-4 pt-3 md:px-8">
+            <div class="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-white/10 bg-[#101112]/90 px-5 py-3 shadow-xl backdrop-blur-xl">
+                <!-- Logo JPG dan nama organisasi -->
+                <a href="index.html" class="flex items-center gap-3 font-semibold tracking-wide"><img src="Logo_LDK_DDJ.png" alt="Logo LDK DDJ" class="h-10 w-10 rounded-full object-contain"><span>LDK DDJ</span></a>
+                <!-- Tombol kembali -->
+                <a href="index.html#tabaruk" class="rounded-full border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"> ← Kembali</a>
+            </div>
+        </header>
+        <main class="glow min-h-screen px-5 pb-16 pt-28 md:px-8 md:pt-32">
+            <div class="mx-auto grid max-w-6xl items-start gap-8 lg:grid-cols-[.9fr_1.1fr] lg:gap-12">
+                <section class="fade py-4 md:py-10">
+                    <span class="inline-flex items-center gap-2 rounded-full border border-[#ff947e]/30 bg-[#ff947e]/10 px-4 py-2 text-xs font-bold tracking-[.18em] text-[#ffab99]"><span class="h-2 w-2 rounded-full bg-[#ff947e]"></span> RUANG KHUSUS · 03</span>
+                    <p class="mt-8 text-sm font-semibold uppercase tracking-[.24em] text-[#70ded0]">LDK DDJ mempersembahkan</p>
+                    <h1 class="display mt-4 text-6xl font-semibold md:text-8xl">Tabaruk <span class="script text-[#ff947e]">3.</span></h1>
+                    <p class="mt-6 max-w-lg text-lg leading-relaxed text-[#c4c9c6]">Sampaikan harapan dan gagasanmu untuk LDK ke depannya. Setiap suara punya arti untuk perjalanan kita bersama.</p>
+                    <div class="mt-9 rounded-[28px] border border-white/10 bg-white/[.04] p-5 md:p-6">
+                        <p class="text-xs font-bold uppercase tracking-[.2em] text-[#dcf37a]">Catat tanggalnya</p>
+                        <div class="mt-4 flex items-start gap-4">
+                        <div class="flex h-[68px] w-[68px] shrink-0 flex-col items-center justify-center rounded-2xl bg-[#dcf37a] text-[#202719]"><span class="text-xs font-extrabold uppercase tracking-wider">Okt</span><span class="text-2xl font-extrabold leading-none">24–25</span></div>
+                        <div><h2 class="text-xl font-bold md:text-2xl">Sabtu – Ahad</h2><p class="mt-1 text-sm text-[#c4c9c6]">24–25 Oktober 2026</p><p class="mt-3 inline-flex rounded-full bg-[#70ded0]/10 px-3 py-1.5 text-xs font-semibold text-[#70ded0]">Kegiatan Tabaruk 3</p></div>
+                        </div>
+                    </div>
+                    <div class="mt-7 flex gap-3 text-sm leading-relaxed text-[#aeb7b2]"><span class="text-xl text-[#70ded0]">✳</span><p>Isi formulir dengan lengkap dan tuliskan harapanmu secara jujur. Masukanmu dapat menjadi bahan refleksi dan pengembangan LDK DDJ.</p></div>
+                </section>
+                <section class="fade rounded-[30px] bg-[#f1f5ed] p-6 text-[#172321] shadow-2xl shadow-black/30 sm:p-9" style="animation-delay:.12s">
+                    <div class="mb-7 flex items-start justify-between gap-4"><div><p class="text-xs font-extrabold uppercase tracking-[.2em] text-[#167d76]">Formulir</p><h2 class="mt-2 text-2xl font-extrabold tracking-tight md:text-3xl">Ceritakan harapanmu</h2><p class="mt-2 text-sm text-[#5b6964]">Lengkapi tiga bagian di bawah ini.</p></div><div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#ff947e] text-xl font-extrabold text-[#35201e]">03</div></div>
+                    <form id="hope-form" novalidate>
+                        <div class="mb-5"><label for="nama" class="mb-2 block text-sm font-bold">Nama Lengkap <span class="text-[#b63635]">*</span></label><input id="nama" name="nama" class="field" placeholder="Masukkan nama lengkap" autocomplete="name" maxlength="120" required><p id="nama-error" class="field-error"></p></div>
+                        <div class="mb-5"><label for="prodi" class="mb-2 block text-sm font-bold">Prodi / Kelas <span class="text-[#b63635]">*</span></label><input id="prodi" name="prodi" class="field" placeholder="Contoh: PAI / Semester 3A" maxlength="120" required><p id="prodi-error" class="field-error"></p></div>
+                        <div class="mb-6"><label for="harapan" class="mb-2 block text-sm font-bold">Harapan untuk LDK ke depannya <span class="text-[#b63635]">*</span></label><textarea id="harapan" name="harapan" class="field min-h-36 resize-y" placeholder="Tuliskan harapan, ide, atau masukanmu untuk LDK DDJ..." maxlength="1500" required></textarea><div class="mt-1 flex justify-between gap-3"><p id="harapan-error" class="field-error"></p><p id="counter" class="text-xs text-[#718079]">0/1500</p></div></div>
+                        <button type="submit" class="w-full rounded-full bg-[#163f3b] px-6 py-4 font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#205a53] focus-visible:outline focus-visible:outline-4 focus-visible:outline-[#70ded0]">Siapkan Jawaban ↗</button>
+                        <p class="mt-4 text-xs leading-relaxed text-[#65736d]">Jawaban akan disimpan secara online ke database Tabaruk 3.</p>
+                        <p id="submit-status" class="mt-3 text-sm font-semibold" role="status" aria-live="polite"></p>
+                    </form>
+                    <div id="result" class="hidden mt-6 rounded-2xl border border-[#167d76]/20 bg-white p-5" role="status"><p class="font-extrabold text-[#163f3b]">Jawabanmu siap!</p><p class="mt-2 text-sm leading-relaxed text-[#4b5b55]">Salin jawaban di bawah ini untuk dikirimkan kepada panitia.</p><pre id="answer-preview" class="mt-4 whitespace-pre-wrap break-words rounded-xl bg-[#f1f5ed] p-4 text-sm leading-relaxed text-[#172321]"></pre><button id="copy-answer" type="button" class="mt-4 w-full rounded-full border border-[#163f3b] px-5 py-3 font-bold text-[#163f3b] transition hover:bg-[#e4eee7]">Salin Jawaban</button><p id="copy-status" class="mt-2 text-center text-xs text-[#167d76]"></p></div>
+                </section>
+            </div>
+            <footer class="mx-auto mt-14 max-w-6xl border-t border-white/10 pt-6 text-center text-sm text-[#8f9994]">LDK DDJ · Bertumbuh, bersuara, dan berdampak bersama.</footer>
+        </main>
+        <script>
+            const form=document.getElementById('hope-form');
+            const fields=['nama','prodi','harapan'];
+            const result=document.getElementById('result');
+            const preview=document.getElementById('answer-preview');
+            const counter=document.getElementById('counter');
+            document.getElementById('harapan').addEventListener('input',e=>counter.textContent=e.target.value.length+'/1500');
+            fields.forEach(id=>document.getElementById(id).addEventListener('input',e=>{document.getElementById(id+'-error').textContent='';e.target.removeAttribute('aria-invalid')}));
+            const submitButton=form.querySelector('button[type="submit"]');
+            const submitStatus=document.getElementById('submit-status');
+            const SUPABASE_URL='https://agegoohjriqwldyxcmkk.supabase.co';
+            const SUPABASE_PUBLISHABLE_KEY='sb_publishable_nXHHm_JSdos4Zfna2-Iajg_E8fNZEw-';
+
+            form.addEventListener('submit',async e=>{
+                e.preventDefault();let valid=true,first=null;
+                fields.forEach(id=>{const el=document.getElementById(id),msg=el.value.trim()?'':'Bagian ini wajib diisi.';document.getElementById(id+'-error').textContent=msg;el.setAttribute('aria-invalid',String(!!msg));if(msg){valid=false;if(!first)first=el}});
+                if(!valid){first.focus();return}
+                const payload={
+                    nama:document.getElementById('nama').value.trim(),
+                    prodi:document.getElementById('prodi').value.trim(),
+                    harapan:document.getElementById('harapan').value.trim()
+                };
+                submitButton.disabled=true;submitButton.setAttribute('aria-busy','true');
+                submitStatus.className='mt-3 text-sm font-semibold text-[#167d76]';
+                submitStatus.textContent='Menyimpan jawaban…';
+                try{
+                    const response=await fetch(SUPABASE_URL+'/rest/v1/tabaruk3',{
+                        method:'POST',
+                        headers:{'Content-Type':'application/json','apikey':SUPABASE_PUBLISHABLE_KEY,'Prefer':'return=minimal'},
+                        body:JSON.stringify(payload)
+                    });
+                    if(!response.ok){const detail=await response.text();console.error('Supabase Tabaruk 3 insert error:',response.status,detail);throw new Error('Jawaban gagal disimpan ('+response.status+'). Periksa tabel dan izin Supabase.')}
+                    preview.textContent='TABARUK 3 — LDK DDJ\n\nNama Lengkap: '+payload.nama+'\nProdi/Kelas: '+payload.prodi+'\nHarapan untuk LDK ke depannya: '+payload.harapan+'\n\nKegiatan: Sabtu–Ahad, 24–25 Oktober 2026';
+                    result.classList.remove('hidden');result.scrollIntoView({behavior:'smooth',block:'nearest'});
+                    submitStatus.textContent='Alhamdulillah, jawaban berhasil disimpan.';
+                }catch(error){submitStatus.className='mt-3 text-sm font-semibold text-[#9d2929]';submitStatus.textContent=error.message||'Jawaban belum terkirim. Periksa koneksi lalu coba lagi.'}
+                finally{submitButton.disabled=false;submitButton.removeAttribute('aria-busy')}
+            });
+            document.getElementById('copy-answer').addEventListener('click',async()=>{
+            const status=document.getElementById('copy-status');
+            try{await navigator.clipboard.writeText(preview.textContent);status.textContent='Jawaban berhasil disalin.'}
+            catch(e){const range=document.createRange();range.selectNodeContents(preview);const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);status.textContent='Teks sudah dipilih. Salin dengan Ctrl+C.'}
+            });
+        </script>
+    </body>
+</html>
