@@ -206,7 +206,14 @@
                 const agreement=document.getElementById('agreement');document.getElementById('agreement-error').textContent=agreement.checked?'':'Centang persetujuan untuk melanjutkan.';if(!agreement.checked){valid=false;if(!first)first=agreement}if(!valid){first.focus();return}
                 submitButton.disabled=true;submitButton.setAttribute('aria-busy','true');status.className='mt-4 min-h-6 text-sm font-semibold text-[#176a61]';status.textContent='Mengirim pendaftaran…';
                 // Kirim semua data pendaftaran ke kolom yang sesuai di Supabase.
-                const payload={nama:document.getElementById('nama_lengkap').value.trim(),nim:document.getElementById('nim').value.trim(),fakultas:document.getElementById('fakultas').value.trim(),email:document.getElementById('email').value.trim(),no_whatsapp:document.getElementById('no_whatsapp').value.trim(),bidang_minat:document.getElementById('bidang_minat').value};
+                const payload = {
+                    nama: document.getElementById('nama_lengkap').value.trim(),
+                    nim: document.getElementById('nim').value.trim(),
+                    fakultas: document.getElementById('fakultas').value.trim(),
+                    email: document.getElementById('email').value.trim(),
+                    no_whatsapp: document.getElementById('no_whatsapp').value.trim(),
+                    bidang_minat: document.getElementById('bidang_minat').value.trim()
+                };
                 try{
                     const response=await fetch(SUPABASE_URL+'/rest/v1/pendaftaran',{method:'POST',headers:{'Content-Type':'application/json','apikey':SUPABASE_PUBLISHABLE_KEY,'Prefer':'return=minimal'},body:JSON.stringify(payload)});
                     if(!response.ok){const detail=await response.text();console.error('Supabase insert error:',response.status,detail);throw new Error('Pendaftaran gagal disimpan ('+response.status+'). Periksa konfigurasi Supabase.')}
