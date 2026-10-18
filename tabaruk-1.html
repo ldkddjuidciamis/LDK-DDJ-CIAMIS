@@ -9,38 +9,31 @@
             :root {
                 --mint: #70ded0
             }
-
             * {
                 box-sizing: border-box
             }
-
             html {
                 scroll-behavior: smooth
             }
-
             body {
                 margin: 0;
                 background: #101312;
                 color: #f8faf7;
                 font-family: Arial, Helvetica, sans-serif
             }
-
             .rise {
                 animation: rise .7s cubic-bezier(.22, 1, .36, 1) both
             }
-
             @keyframes rise {
                 from {
                     opacity: 0;
                     transform: translateY(18px)
                 }
-
                 to {
                     opacity: 1;
                     transform: translateY(0)
                 }
             }
-
             .slide {
                 position: absolute;
                 inset: 0;
@@ -48,18 +41,15 @@
                 transform: scale(1.025);
                 transition: opacity .8s ease, transform 1.4s ease
             }
-
             .slide.active {
                 opacity: 1;
                 transform: scale(1)
             }
-
             .slide img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover
             }
-
             .placeholder {
                 height: 100%;
                 display: flex;
@@ -70,7 +60,6 @@
                 background: linear-gradient(135deg, #20332f, #354a44);
                 color: #d7e7e0
             }
-
             label {
                 display: block;
                 font-size: .92rem;
@@ -78,7 +67,6 @@
                 color: #203c38;
                 margin-bottom: .5rem
             }
-
             input:not([type=checkbox]):not([type=radio]):not([type=file]),
             select,
             textarea {
@@ -90,39 +78,33 @@
                 padding: 13px 14px;
                 outline: none
             }
-
             input:focus,
             select:focus,
             textarea:focus {
                 border-color: #269e91;
                 box-shadow: 0 0 0 3px #70ded033
             }
-
             textarea {
                 min-height: 110px;
                 resize: vertical
             }
-
             .hint {
                 font-size: .78rem;
                 color: #71807b;
                 margin-top: 6px;
                 line-height: 1.5
             }
-
             .formcard {
                 background: #fff;
                 border: 1px solid #dce7e1;
                 border-radius: 22px;
                 padding: clamp(18px, 4vw, 30px)
             }
-
             .sectiontitle {
                 font-size: 1.05rem;
                 font-weight: 800;
                 color: #1c4640
             }
-
             .primary {
                 background: var(--mint);
                 color: #12332f;
@@ -130,9 +112,7 @@
                 padding: 14px 22px;
                 font-weight: 800
             }
-
             @media(prefers-reduced-motion:reduce) {
-
                 *,
                 *::before,
                 *::after {
@@ -143,27 +123,26 @@
             }
         </style>
     </head>
-
     <body>
-        <header class="fixed inset-x-0 top-0 z-30 px-4 pt-3">
-            <div
-                class="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-white/10 bg-[#101312]/90 px-5 py-3 shadow-xl">
-                <a href="index.html" class="font-bold">LDK DDJ<span style="color:var(--mint)">CIAMIS</span></a>
-                <a href="index.html#tabaruk" class="rounded-full border border-white/20 px-4 py-2 text-sm">← Kembali</a>
+        <header class="fixed inset-x-0 top-0 z-20 px-4 pt-3 md:px-8">
+            <div class="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-white/10 bg-[#101112]/90 px-5 py-3 shadow-xl backdrop-blur-xl">
+                <!-- Logo JPG dan nama organisasi -->
+                <a href="index.html" class="flex items-center gap-3 font-semibold tracking-wide"><img src="Logo_LDK_DDJ.png" alt="Logo LDK DDJ" class="h-10 w-10 rounded-full object-contain"><span>LDK DDJ</span></a>
+                <!-- Tombol kembali -->
+                <a href="index.html#tabaruk" class="rounded-full border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"> ← Kembali</a>
             </div>
         </header>
         <main class="mx-auto max-w-6xl px-4 pb-16 pt-28 sm:px-6">
             <section
                 class="rise rounded-[30px] border border-white/10 bg-gradient-to-br from-[#1b2927] to-[#171817] p-6 sm:p-10 md:p-14">
                 <div class="grid items-center gap-8 md:grid-cols-[1.1fr_.9fr]">
-                    <div>
-                        <span class="inline-flex rounded-full px-4 py-2 text-xs font-extrabold tracking-widest"
+                    <div><span class="inline-flex rounded-full px-4 py-2 text-xs font-extrabold tracking-widest"
                             style="background:var(--mint);color:#102b2a">PENDAFTARAN KEGIATAN</span>
                         <p class="mt-7 text-sm uppercase tracking-[.22em] text-[#b8c7c1]">LDK DDJ Ciamis</p>
                         <h1 class="mt-3 text-4xl font-black sm:text-5xl md:text-6xl">Tabaruk 1</h1>
                         <p class="mt-5 max-w-xl leading-7 text-[#d0d8d4]">Ruang untuk mengenal kegiatan Tabaruk 1, membangun
-                            kebersamaan, dan menyiapkan diri mengikuti rangkaian kegiatan bersama LDK DDJ Ciamis.</p>
-                        <a href="#formulir" class="mt-7 inline-flex rounded-full px-6 py-3 font-bold"
+                            kebersamaan, dan menyiapkan diri mengikuti rangkaian kegiatan bersama LDK DDJ Ciamis.</p><a
+                            href="#formulir" class="mt-7 inline-flex rounded-full px-6 py-3 font-bold"
                             style="background:var(--mint);color:#102b2a">Isi Formulir ↘</a>
                     </div>
                     <div class="rounded-3xl border border-white/10 bg-white/5 p-5 sm:p-6">
@@ -185,37 +164,21 @@
                         </p>
                         <h2 class="mt-2 text-2xl font-bold sm:text-3xl">Dokumentasi Tabaruk</h2>
                     </div>
-                    <p class="max-w-md text-sm leading-6 text-[#aebbb5]">Lima foto bergeser otomatis. Ganti placeholder pada
-                        setiap slide dengan tag gambar sesuai petunjuk di kode.</p>
+                    <p class="max-w-md text-sm leading-6 text-[#aebbb5]">Dokumentasi kegiatan Tabaruk 1. Lima foto bergeser
+                        otomatis setiap beberapa detik.</p>
                 </div>
                 <div id="slideshow"
                     class="relative h-[260px] overflow-hidden rounded-3xl border border-white/10 bg-[#1b2927] sm:h-[390px]">
-                    <!-- GANTI SETIAP .placeholder DENGAN <img src="foto-tabaruk-1.jpg" alt="Dokumentasi Tabaruk 1"> DAN SETERUSNYA -->
-                    <div class="slide active">
-                        <div class="placeholder">
-                            <span class="text-4xl">01</span><strong>Foto kegiatan 1</strong><span class="text-sm">Ganti
-                                dengan foto pertama</span>
-                        </div>
+                    <!-- Foto harus diunggah ke GitHub dalam folder yang sama dengan file tabaruk-1.html -->
+                    <div class="slide active"><img src="foto-tabaruk-1.jpg" alt="Dokumentasi Tabaruk 1 - foto 1"
+                            loading="eager"></div>
+                    <div class="slide"><img src="foto-tabaruk-2.jpg" alt="Dokumentasi Tabaruk 1 - foto 2" loading="lazy">
                     </div>
-                    <div class="slide">
-                        <div class="placeholder"><span class="text-4xl">02</span><strong>Foto kegiatan 2</strong>
-                            <span class="text-sm">Ganti dengan foto kedua</span>
-                        </div>
+                    <div class="slide"><img src="foto-tabaruk-3.jpg" alt="Dokumentasi Tabaruk 1 - foto 3" loading="lazy">
                     </div>
-                    <div class="slide">
-                        <div class="placeholder"><span class="text-4xl">03</span><strong>Foto kegiatan 3</strong><span
-                                class="text-sm">Ganti dengan foto ketiga</span>
-                        </div>
+                    <div class="slide"><img src="foto-tabaruk-4.jpg" alt="Dokumentasi Tabaruk 1 - foto 4" loading="lazy">
                     </div>
-                    <div class="slide">
-                        <div class="placeholder"><span class="text-4xl">04</span><strong>Foto kegiatan 4</strong><span
-                                class="text-sm">Ganti dengan foto keempat</span>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="placeholder"><span class="text-4xl">05</span><strong>Foto kegiatan 5</strong>
-                            <span class="text-sm">Ganti dengan foto kelima</span>
-                        </div>
+                    <div class="slide"><img src="foto-tabaruk-5.jpg" alt="Dokumentasi Tabaruk 1 - foto 5" loading="lazy">
                     </div>
                     <div
                         class="absolute inset-x-0 bottom-0 z-10 flex items-end justify-between bg-gradient-to-t from-black/70 to-transparent p-5">
@@ -335,10 +298,11 @@
                     </div>
                 </div>
             </section>
-            <footer class="mt-12 border-t border-white/10 pt-6 text-center text-sm text-[#9eaca6]">LDK DDJ Ciamis · Tabaruk1</footer>
+            <footer class="mt-12 border-t border-white/10 pt-6 text-center text-sm text-[#9eaca6]">LDK DDJ Ciamis · Tabaruk
+                1</footer>
         </main>
         <script>
-            // SLIDESHOW: ganti isi .placeholder pada tiap slide dengan <img src="nama-foto.jpg" alt="Dokumentasi Tabaruk 1">. Unggah foto ke folder yang sama dengan file HTML.
+            // SLIDESHOW: lima foto memakai file foto-tabaruk-1.jpg sampai foto-tabaruk-5.jpg yang berada di folder yang sama dengan HTML.
             const slides = [...document.querySelectorAll('.slide')], dotsBox = document.getElementById('dots'), caption = document.getElementById('caption'); let idx = 0, timer; slides.forEach((_, i) => { const b = document.createElement('button'); b.type = 'button'; b.className = 'dot h-2.5 w-2.5 rounded-full bg-white/50 transition-all duration-300'; b.setAttribute('aria-label', 'Tampilkan foto ' + (i + 1)); b.addEventListener('click', () => { show(i); restart() }); dotsBox.appendChild(b) }); const dots = [...dotsBox.children]; function show(n) { idx = (n + slides.length) % slides.length; slides.forEach((s, i) => s.classList.toggle('active', i === idx)); dots.forEach((d, i) => d.classList.toggle('active', i === idx)); caption.textContent = 'Dokumentasi kegiatan · ' + (idx + 1) + '/5' } function restart() { clearInterval(timer); if (!matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(() => show(idx + 1), 4500) } document.getElementById('prev').onclick = () => { show(idx - 1); restart() }; document.getElementById('next').onclick = () => { show(idx + 1); restart() }; document.getElementById('slideshow').onmouseenter = () => clearInterval(timer); document.getElementById('slideshow').onmouseleave = restart; show(0); restart();
             const URL = 'https://agegoohjriqwldyxcmkk.supabase.co', KEY = 'sb_publishable_nXHHm_JSdos4Zfna2-Iajg_E8fNZEw-'; const form = document.getElementById('form'), status = document.getElementById('status'), submit = document.getElementById('submit'); document.getElementById('bukti').addEventListener('change', e => document.getElementById('filename').textContent = e.target.files[0] ? 'File dipilih: ' + e.target.files[0].name : ''); form.addEventListener('submit', async e => { e.preventDefault(); status.textContent = ''; const file = document.getElementById('bukti').files[0], days = [...document.querySelectorAll('#days input:checked')].map(x => x.value); if (!days.length) { status.textContent = 'Pilih setidaknya satu hari kuliah.'; status.className = 'text-sm font-semibold text-red-700'; return } if (!file || !file.type.startsWith('image/') || file.size > 5 * 1024 * 1024) { status.textContent = 'Pilih file gambar dengan ukuran maksimal 5 MB.'; status.className = 'text-sm font-semibold text-red-700'; return } const disease = document.querySelector('input[name="penyakit"]:checked'); const data = { nama: document.getElementById('nama').value.trim(), kelas: document.getElementById('kelas').value.trim(), prodi: document.getElementById('prodi').value, tempat_tanggal_lahir: document.getElementById('ttl').value.trim(), hari_kuliah: days.join(', '), riwayat_penyakit: disease.value, detail_penyakit: document.getElementById('detail').value.trim(), no_whatsapp: document.getElementById('wa').value.trim(), alasan: document.getElementById('alasan').value.trim(), bukti_url: '' }; submit.disabled = true; submit.textContent = 'Mengirim pendaftaran…'; status.textContent = 'Mengunggah bukti dan menyimpan data…'; status.className = 'text-sm font-semibold text-[#176a61]'; try { const name = Date.now() + '-' + file.name.replace(/[^a-zA-Z0-9._-]/g, '_'); const up = await fetch(URL + '/storage/v1/object/tabaruk1-bukti/' + name, { method: 'POST', headers: { apikey: KEY, 'Content-Type': file.type, 'x-upsert': 'false' }, body: file }); if (!up.ok) { console.error('Storage upload:', up.status, await up.text()); throw new Error('Bukti gagal diunggah. Periksa bucket dan izin Storage di Supabase.') } data.bukti_url = URL + '/storage/v1/object/public/tabaruk1-bukti/' + name; const res = await fetch(URL + '/rest/v1/tabaruk1', { method: 'POST', headers: { 'Content-Type': 'application/json', apikey: KEY, Prefer: 'return=minimal' }, body: JSON.stringify(data) }); if (!res.ok) { console.error('Database insert:', res.status, await res.text()); throw new Error('Data gagal disimpan. Periksa tabel tabaruk1 dan izin INSERT.') } form.classList.add('hidden'); document.getElementById('success').classList.remove('hidden'); document.getElementById('success').focus() } catch (err) { status.textContent = err.message || 'Terjadi kendala. Silakan coba lagi.'; status.className = 'text-sm font-semibold text-red-700' } finally { submit.disabled = false; submit.textContent = 'Kirim Pendaftaran ↗' } });
         </script>
