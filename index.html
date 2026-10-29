@@ -46,6 +46,8 @@
         .field{width:100%;box-sizing:border-box;border:1px solid #d5ded9;background:#fff;color:#172321;border-radius:16px;padding:14px 16px;outline:none;transition:border-color .2s,box-shadow .2s}
         .field:focus{border-color:#167d76;box-shadow:0 0 0 4px #70ded044}
         .field[aria-invalid="true"]{border-color:#b63635}
+        .field::placeholder{color:#a5afab;opacity:1}
+        .field option:disabled{color:#a5afab}
         .field-error{min-height:19px;color:#a92c2c;font-size:13px;margin-top:5px}
         .reveal{animation:rise .7s both}
         @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
@@ -195,12 +197,14 @@
                     <form id="registration-form" novalidate>
                         <h3 class="mb-7 text-2xl font-bold">Formulir Pendaftaran</h3>
                         <div class="grid gap-x-5 gap-y-3 sm:grid-cols-2">
-                        <div class="sm:col-span-2"><label for="nama_lengkap" class="mb-2 block text-sm">Nama Lengkap *</label><input id="nama_lengkap" name="nama_lengkap" class="field" autocomplete="name" required maxlength="120"><p id="nama_lengkap-error" class="field-error"></p></div>
-                        <div><label for="nim" class="mb-2 block text-sm">NIM *</label><input id="nim" name="nim" class="field" required maxlength="30"><p id="nim-error" class="field-error"></p></div>
-                        <div><label for="fakultas" class="mb-2 block text-sm">Fakultas / Program Studi *</label><input id="fakultas" name="fakultas" class="field" required maxlength="120"><p id="fakultas-error" class="field-error"></p></div>
-                        <div><label for="no_whatsapp" class="mb-2 block text-sm">Nomor WhatsApp *</label><input id="no_whatsapp" name="no_whatsapp" class="field" type="tel" autocomplete="tel" required maxlength="20"><p id="no_whatsapp-error" class="field-error"></p></div>
-                        <div><label for="email" class="mb-2 block text-sm">Email *</label><input id="email" name="email" class="field" type="email" autocomplete="email" required maxlength="150"><p id="email-error" class="field-error"></p></div>
-                        <div class="sm:col-span-2"><label for="bidang_minat" class="mb-2 block text-sm">Bidang yang Diminati *</label><select id="bidang_minat" name="bidang_minat" class="field" required><option value="">Pilih bidang</option><option>Kaderisasi</option><option>Isu &amp; Keumatan</option><option>Media &amp; Kreatif</option><option>Khairunnisa</option><option>Fundrishing</option><option>Eksternal</option></select><p id="bidang_minat-error" class="field-error"></p></div>
+                        <div class="sm:col-span-2"><label for="nama_lengkap" class="mb-2 block text-sm">Nama Lengkap *</label><input id="nama_lengkap" name="nama_lengkap" class="field" autocomplete="name" placeholder="Masukkan nama lengkap" required maxlength="120"><p id="nama_lengkap-error" class="field-error"></p></div>
+                        <div><label for="nim" class="mb-2 block text-sm">NIM *</label><input id="nim" name="nim" class="field" placeholder="Masukkan NIM" required maxlength="30"><p id="nim-error" class="field-error"></p></div>
+                        <div><label for="fakultas" class="mb-2 block text-sm">Fakultas / Program Studi *</label><input id="fakultas" name="fakultas" class="field" placeholder="Contoh: PAI" required maxlength="120"><p id="fakultas-error" class="field-error"></p></div>
+                        <div><label for="semester" class="mb-2 block text-sm">Semester Saat Ini *</label><select id="semester" name="semester" class="field" required><option value="" disabled selected>Pilih semester</option><option value="1">Semester 1</option><option value="2">Semester 2</option><option value="3">Semester 3</option><option value="4">Semester 4</option><option value="5">Semester 5</option><option value="6">Semester 6</option><option value="7">Semester 7</option><option value="8">Semester 8</option><option value="9">Semester 9 atau lebih</option></select><p id="semester-error" class="field-error"></p></div>
+                        <div><label for="kelas" class="mb-2 block text-sm">Kelas *</label><select id="kelas" name="kelas" class="field" required><option value="" disabled selected>Pilih kelas</option><option value="A">Kelas A</option><option value="B">Kelas B</option><option value="C">Kelas C</option><option value="D">Kelas D</option><option value="E">Kelas E</option></select><p id="kelas-error" class="field-error"></p></div>
+                        <div><label for="no_whatsapp" class="mb-2 block text-sm">Nomor WhatsApp *</label><input id="no_whatsapp" name="no_whatsapp" class="field" type="tel" autocomplete="tel" placeholder="Contoh: 08xxxxxxxxxx" required maxlength="20"><p id="no_whatsapp-error" class="field-error"></p></div>
+                        <div><label for="email" class="mb-2 block text-sm">Email *</label><input id="email" name="email" class="field" type="email" autocomplete="email" placeholder="Contoh: nama@email.com" required maxlength="150"><p id="email-error" class="field-error"></p></div>
+                        <div class="sm:col-span-2"><label for="bidang_minat" class="mb-2 block text-sm">Bidang yang Diminati *</label><select id="bidang_minat" name="bidang_minat" class="field" required><option value="" disabled selected>Pilih bidang yang diminati</option><option>Kaderisasi</option><option>Isu &amp; Keumatan</option><option>Media &amp; Kreatif</option><option>Khairunnisa</option><option>Fundrishing</option><option>Eksternal</option></select><p id="bidang_minat-error" class="field-error"></p></div>
                         </div>
                         <div class="mt-3 flex items-start gap-3"><input id="agreement" type="checkbox" class="mt-1 h-5 w-5 shrink-0 accent-[#126f68]" required><label for="agreement" class="text-sm leading-relaxed text-[#344440]">Saya bersedia mengikuti proses seleksi pendaftaran LDK DDJ. *</label></div>
                         <p id="agreement-error" class="field-error ml-8"></p>
@@ -240,7 +244,7 @@
             showSlide(0);restartTimer();window.addEventListener('resize',()=>showSlide(index));
             const form=document.getElementById('registration-form'),status=document.getElementById('form-status');
             const submitButton=document.getElementById('submit-button');
-            const fields=['nama_lengkap','nim','fakultas','no_whatsapp','email','bidang_minat'];
+            const fields=['nama_lengkap','nim','fakultas','semester','kelas','no_whatsapp','email','bidang_minat'];
             const SUPABASE_URL='https://agegoohjriqwldyxcmkk.supabase.co';
             const SUPABASE_PUBLISHABLE_KEY='sb_publishable_nXHHm_JSdos4Zfna2-Iajg_E8fNZEw-';
             fields.forEach(id=>{const input=document.getElementById(id);input.addEventListener('input',()=>{document.getElementById(id+'-error').textContent='';input.removeAttribute('aria-invalid')})});
@@ -255,6 +259,8 @@
                     nama: document.getElementById('nama_lengkap').value.trim(),
                     nim: document.getElementById('nim').value.trim(),
                     fakultas: document.getElementById('fakultas').value.trim(),
+                    semester: Number(document.getElementById('semester').value),
+                    kelas: document.getElementById('kelas').value,
                     email: document.getElementById('email').value.trim(),
                     no_whatsapp: document.getElementById('no_whatsapp').value.trim(),
                     bidang_minat: document.getElementById('bidang_minat').value.trim()
