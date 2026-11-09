@@ -206,12 +206,59 @@
                         <div><label for="email" class="mb-2 block text-sm">Email *</label><input id="email" name="email" class="field" type="email" autocomplete="email" placeholder="Contoh: nama@email.com" required maxlength="150"><p id="email-error" class="field-error"></p></div>
                         <div class="sm:col-span-2"><label for="bidang_minat" class="mb-2 block text-sm">Bidang yang Diminati *</label><select id="bidang_minat" name="bidang_minat" class="field" required><option value="" disabled selected>Pilih bidang yang diminati</option><option>Kaderisasi</option><option>Isu &amp; Keumatan</option><option>Media &amp; Kreatif</option><option>Khairunnisa</option><option>Fundrishing</option><option>Eksternal</option></select><p id="bidang_minat-error" class="field-error"></p></div>
                         </div>
-                        <div class="mt-3 flex items-start gap-3"><input id="agreement" type="checkbox" class="mt-1 h-5 w-5 shrink-0 accent-[#126f68]" required><label for="agreement" class="text-sm leading-relaxed text-[#344440]">Saya bersedia mengikuti proses seleksi pendaftaran LDK DDJ. *</label></div>
+
+<div class="mt-6 border-t border-[#dce7e1] pt-6">
+    <h4 class="mb-4 text-lg font-bold text-[#173d38]">Informasi tambahan Tabaruk 1</h4>
+    <div class="grid gap-x-5 gap-y-4 sm:grid-cols-2">
+        <div class="sm:col-span-2">
+            <label for="tempat_tanggal_lahir" class="mb-2 block text-sm">Tempat dan tanggal lahir *</label>
+            <input id="tempat_tanggal_lahir" name="tempat_tanggal_lahir" class="field" required maxlength="120" placeholder="Contoh: Ciamis, 17 Agustus 2005">
+        </div>
+        <div class="sm:col-span-2">
+            <label class="mb-2 block text-sm">Hari kuliah *</label>
+            <p class="mb-2 text-xs text-[#71807b]">Pilih semua hari yang sesuai.</p>
+            <div id="days" class="grid grid-cols-2 gap-2 sm:grid-cols-4">
+                <label class="flex items-center gap-2 rounded-xl border border-[#d5ded9] p-3 text-sm"><input type="checkbox" name="hari_kuliah" value="Senin" class="accent-[#126f68]">Senin</label><label class="flex items-center gap-2 rounded-xl border border-[#d5ded9] p-3 text-sm"><input type="checkbox" name="hari_kuliah" value="Selasa" class="accent-[#126f68]">Selasa</label><label class="flex items-center gap-2 rounded-xl border border-[#d5ded9] p-3 text-sm"><input type="checkbox" name="hari_kuliah" value="Rabu" class="accent-[#126f68]">Rabu</label><label class="flex items-center gap-2 rounded-xl border border-[#d5ded9] p-3 text-sm"><input type="checkbox" name="hari_kuliah" value="Kamis" class="accent-[#126f68]">Kamis</label><label class="flex items-center gap-2 rounded-xl border border-[#d5ded9] p-3 text-sm"><input type="checkbox" name="hari_kuliah" value="Jumat" class="accent-[#126f68]">Jumat</label><label class="flex items-center gap-2 rounded-xl border border-[#d5ded9] p-3 text-sm"><input type="checkbox" name="hari_kuliah" value="Sabtu" class="accent-[#126f68]">Sabtu</label><label class="flex items-center gap-2 rounded-xl border border-[#d5ded9] p-3 text-sm"><input type="checkbox" name="hari_kuliah" value="Minggu" class="accent-[#126f68]">Minggu</label>
+            </div>
+        </div>
+        <div class="sm:col-span-2 rounded-2xl bg-[#e7f3ed] p-4">
+            <p class="font-bold text-[#20463f]">Konfirmasi media sosial LDK DDJ</p>
+            <p class="mt-2 text-sm text-[#45615a]">Instagram: <a class="font-bold underline" href="https://www.instagram.com/ldkddj_ciamis/" target="_blank" rel="noopener">@ldkddj_ciamis</a></p>
+            <p class="mt-1 text-sm text-[#45615a]">YouTube: <a class="font-bold underline" href="https://www.youtube.com/results?search_query=LDK+DDJ+CIAMIS" target="_blank" rel="noopener">LDK DDJ CIAMIS</a></p>
+        </div>
+        <div class="sm:col-span-2">
+            <label for="bukti" class="mb-2 block text-sm">Upload bukti follow Instagram dan subscribe YouTube *</label>
+            <input id="bukti" name="bukti" type="file" accept="image/*" required class="field">
+            <p class="mt-1 text-xs text-[#71807b]">Unggah satu foto/screenshot bukti. Format gambar, maksimal 5 MB.</p>
+            <p id="filename" class="mt-1 text-xs text-[#45615a]" aria-live="polite"></p>
+        </div>
+        <div class="sm:col-span-2">
+            <fieldset class="rounded-2xl border border-[#d5ded9] p-4">
+                <legend class="px-1 text-sm font-semibold">Apakah mempunyai riwayat penyakit? *</legend>
+                <div class="mt-2 flex gap-5 text-sm">
+                    <label class="flex items-center gap-2"><input type="radio" name="riwayat_penyakit" value="Tidak" required class="accent-[#126f68]">Tidak</label>
+                    <label class="flex items-center gap-2"><input type="radio" name="riwayat_penyakit" value="Ya" required class="accent-[#126f68]">Ya</label>
+                </div>
+                <p class="mt-2 text-xs text-[#71807b]">Jika memilih Ya, jelaskan seperlunya agar panitia dapat mempertimbangkan kebutuhan peserta.</p>
+            </fieldset>
+        </div>
+        <div class="sm:col-span-2">
+            <label for="detail_penyakit" class="mb-2 block text-sm">Keterangan riwayat penyakit (jika ada)</label>
+            <textarea id="detail_penyakit" name="detail_penyakit" class="field" rows="3" maxlength="2000" placeholder="Opsional — isi jika memilih Ya"></textarea>
+        </div>
+        <div class="sm:col-span-2">
+            <label for="alasan" class="mb-2 block text-sm">Alasan mengikuti Tabaruk 1 *</label>
+            <textarea id="alasan" name="alasan" class="field" rows="4" required maxlength="3000" placeholder="Ceritakan alasan dan harapanmu mengikuti kegiatan ini"></textarea>
+        </div>
+    </div>
+</div>
+
+                        <div class="mt-3 flex items-start gap-3"><input id="agreement" type="checkbox" class="mt-1 h-5 w-5 shrink-0 accent-[#126f68]" required><label for="agreement" class="text-sm leading-relaxed text-[#344440]">Saya memastikan data yang diisi benar dan bersedia data ini digunakan panitia untuk keperluan pendaftaran LDK DDJ dan Tabaruk 1. *</label></div>
                         <p id="agreement-error" class="field-error ml-8"></p>
                         <button id="submit-button" type="submit" class="canva-button mt-5 w-full rounded-full bg-[#163f3b] px-7 py-4 font-semibold text-white">Kirim Pendaftaran ↗</button>
                         <p id="form-status" class="mt-4 min-h-6 text-sm font-semibold" role="alert"></p>
                     </form>
-                    <div id="success-panel" class="hidden py-8 text-center" role="status" tabindex="-1"><div class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[#daf4d0] text-4xl text-[#12544c]">✓</div><h3 class="text-2xl font-bold text-[#173d38]">Pendaftaran diterima!</h3><p class="mt-4 leading-relaxed text-[#344440]">Terima kasih, <strong id="success-name"></strong>. Data pendaftaranmu sudah kami terima. Sampai jumpa dalam proses seleksi!</p></div>
+                    <div id="success-panel" class="hidden py-8 text-center" role="status" tabindex="-1"><div class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[#daf4d0] text-4xl text-[#12544c]">✓</div><h3 class="text-2xl font-bold text-[#173d38]">Alhamdulillah, pendaftaran berhasil!</h3><p class="mt-4 leading-relaxed text-[#344440]">Terima kasih, <strong id="success-name"></strong>. Data dan bukti pendaftaranmu sudah kami terima.</p><p class="mt-3 text-sm text-[#344440]">Silakan bergabung ke grup WhatsApp peserta Tabaruk 1.</p><a id="joinGroup" href="https://chat.whatsapp.com/KrVAaSVIDpG77F54JGogn9?s=sw&amp;p=a&amp;mlu=4&amp;ilr=4&amp;iam=2" target="_blank" rel="noopener" class="canva-button mt-5 inline-flex items-center justify-center rounded-full bg-[#25D366] px-6 py-3 font-bold text-white">Gabung Grup WhatsApp ↗</a><p class="mt-3 text-xs text-[#71807b]">Halaman akan mengarahkanmu ke grup WhatsApp dalam beberapa saat.</p></div>
                     </div>
                 </div>
             </section>
@@ -242,36 +289,94 @@
             function restartTimer(){clearInterval(timer);if(!matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(()=>showSlide(index+1),5200)}
             carousel.addEventListener('mouseenter',()=>clearInterval(timer));carousel.addEventListener('mouseleave',restartTimer);carousel.addEventListener('focusin',()=>clearInterval(timer));carousel.addEventListener('focusout',restartTimer);
             showSlide(0);restartTimer();window.addEventListener('resize',()=>showSlide(index));
+
             const form=document.getElementById('registration-form'),status=document.getElementById('form-status');
             const submitButton=document.getElementById('submit-button');
-            const fields=['nama_lengkap','nim','fakultas','semester','kelas','no_whatsapp','email','bidang_minat'];
+            const fields=['nama_lengkap','nim','fakultas','semester','kelas','no_whatsapp','email','bidang_minat','tempat_tanggal_lahir','alasan'];
             const SUPABASE_URL='https://agegoohjriqwldyxcmkk.supabase.co';
             const SUPABASE_PUBLISHABLE_KEY='sb_publishable_nXHHm_JSdos4Zfna2-Iajg_E8fNZEw-';
-            fields.forEach(id=>{const input=document.getElementById(id);input.addEventListener('input',()=>{document.getElementById(id+'-error').textContent='';input.removeAttribute('aria-invalid')})});
+            const WHATSAPP_GROUP='https://chat.whatsapp.com/KrVAaSVIDpG77F54JGogn9?s=sw&p=a&mlu=4&ilr=4&iam=2';
+            const buktiInput=document.getElementById('bukti');
+            buktiInput.addEventListener('change',e=>{
+                const file=e.target.files[0];
+                document.getElementById('filename').textContent=file?'File dipilih: '+file.name:'';
+            });
+            fields.forEach(id=>{
+                const input=document.getElementById(id);
+                input.addEventListener('input',()=>{const error=document.getElementById(id+'-error');if(error)error.textContent='';input.removeAttribute('aria-invalid')});
+            });
             document.getElementById('agreement').addEventListener('change',()=>document.getElementById('agreement-error').textContent='');
             form.addEventListener('submit',async event=>{
-                event.preventDefault(); status.textContent=''; let first=null,valid=true;
-                fields.forEach(id=>{const input=document.getElementById(id),value=input.value.trim();let msg='';if(!value)msg='Wajib diisi.';else if(id==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))msg='Masukkan alamat email yang valid.';else if(id==='no_whatsapp'&&!/^\+?[\d\s().-]{9,20}$/.test(value))msg='Masukkan nomor WhatsApp yang valid.';else if(id==='nim'&&!/^[a-zA-Z0-9./-]{4,30}$/.test(value))msg='Masukkan NIM yang valid (minimal 4 karakter).';document.getElementById(id+'-error').textContent=msg;input.setAttribute('aria-invalid',String(!!msg));if(msg){valid=false;if(!first)first=input}});
-                const agreement=document.getElementById('agreement');document.getElementById('agreement-error').textContent=agreement.checked?'':'Centang persetujuan untuk melanjutkan.';if(!agreement.checked){valid=false;if(!first)first=agreement}if(!valid){first.focus();return}
-                submitButton.disabled=true;submitButton.setAttribute('aria-busy','true');status.className='mt-4 min-h-6 text-sm font-semibold text-[#176a61]';status.textContent='Mengirim pendaftaran…';
-                // Kirim semua data pendaftaran ke kolom yang sesuai di Supabase.
-                const payload = {
-                    nama: document.getElementById('nama_lengkap').value.trim(),
-                    nim: document.getElementById('nim').value.trim(),
-                    fakultas: document.getElementById('fakultas').value.trim(),
-                    semester: Number(document.getElementById('semester').value),
-                    kelas: document.getElementById('kelas').value,
-                    email: document.getElementById('email').value.trim(),
-                    no_whatsapp: document.getElementById('no_whatsapp').value.trim(),
-                    bidang_minat: document.getElementById('bidang_minat').value.trim()
+                event.preventDefault();status.textContent='';
+                let first=null,valid=true;
+                fields.forEach(id=>{
+                    const input=document.getElementById(id),value=input.value.trim();let msg='';
+                    if(!value)msg='Wajib diisi.';
+                    else if(id==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))msg='Masukkan alamat email yang valid.';
+                    else if(id==='no_whatsapp'&&!/^\+?[\d\s().-]{9,20}$/.test(value))msg='Masukkan nomor WhatsApp yang valid.';
+                    else if(id==='nim'&&!/^[a-zA-Z0-9./-]{4,30}$/.test(value))msg='Masukkan NIM yang valid (minimal 4 karakter).';
+                    const error=document.getElementById(id+'-error');if(error)error.textContent=msg;
+                    input.setAttribute('aria-invalid',String(!!msg));
+                    if(msg){valid=false;if(!first)first=input}
+                });
+                const days=[...document.querySelectorAll('#days input:checked')].map(x=>x.value);
+                if(!days.length){valid=false;if(!first)first=document.querySelector('#days input');}
+                const file=buktiInput.files[0];
+                if(!file||!file.type.startsWith('image/')||file.size>5*1024*1024){valid=false;if(!first)first=buktiInput;status.textContent='Pilih bukti gambar dengan ukuran maksimal 5 MB.';}
+                const disease=document.querySelector('input[name="riwayat_penyakit"]:checked');
+                if(!disease){valid=false;if(!first)first=document.querySelector('input[name="riwayat_penyakit"]');}
+                const agreement=document.getElementById('agreement');
+                document.getElementById('agreement-error').textContent=agreement.checked?'':'Centang persetujuan untuk melanjutkan.';
+                if(!agreement.checked){valid=false;if(!first)first=agreement}
+                if(!valid){if(!status.textContent)status.textContent='Periksa kembali kolom wajib dan pilih minimal satu hari kuliah.';status.className='mt-4 min-h-6 text-sm font-semibold text-[#9d2929]';first?.focus();return}
+
+                submitButton.disabled=true;submitButton.setAttribute('aria-busy','true');
+                status.className='mt-4 min-h-6 text-sm font-semibold text-[#176a61]';
+                status.textContent='Mengunggah bukti dan menyimpan pendaftaran…';
+                const payload={
+                    nama:document.getElementById('nama_lengkap').value.trim(),
+                    nim:document.getElementById('nim').value.trim(),
+                    fakultas:document.getElementById('fakultas').value.trim(),
+                    semester:Number(document.getElementById('semester').value),
+                    kelas:document.getElementById('kelas').value,
+                    no_whatsapp:document.getElementById('no_whatsapp').value.trim(),
+                    email:document.getElementById('email').value.trim(),
+                    bidang_minat:document.getElementById('bidang_minat').value,
+                    tempat_tanggal_lahir:document.getElementById('tempat_tanggal_lahir').value.trim(),
+                    hari_kuliah:days,
+                    riwayat_penyakit:disease.value,
+                    detail_penyakit:document.getElementById('detail_penyakit').value.trim(),
+                    alasan:document.getElementById('alasan').value.trim(),
+                    bukti_url:''
                 };
                 try{
-                    const response=await fetch(SUPABASE_URL+'/rest/v1/pendaftaran',{method:'POST',headers:{'Content-Type':'application/json','apikey':SUPABASE_PUBLISHABLE_KEY,'Prefer':'return=minimal'},body:JSON.stringify(payload)});
-                    if(!response.ok){const detail=await response.text();console.error('Supabase insert error:',response.status,detail);throw new Error('Pendaftaran gagal disimpan ('+response.status+'). Periksa konfigurasi Supabase.')}
-                    document.getElementById('success-name').textContent=payload.nama;form.classList.add('hidden');const panel=document.getElementById('success-panel');panel.classList.remove('hidden');panel.focus();
-                }catch(error){status.className='mt-4 min-h-6 text-sm font-semibold text-[#9d2929]';status.textContent=error.message||'Pendaftaran belum terkirim. Periksa koneksi dan coba lagi.'}
-                finally{submitButton.disabled=false;submitButton.removeAttribute('aria-busy')}
+                    const safeName=file.name.normalize('NFKD').replace(/[^a-zA-Z0-9._-]/g,'_');
+                    const objectName=Date.now()+'-'+safeName;
+                    const upload=await fetch(SUPABASE_URL+'/storage/v1/object/tabaruk1-bukti/'+objectName,{
+                        method:'POST',
+                        headers:{apikey:SUPABASE_PUBLISHABLE_KEY,'Content-Type':file.type,'x-upsert':'false'},
+                        body:file
+                    });
+                    if(!upload.ok){const detail=await upload.text();console.error('Storage upload:',upload.status,detail);throw new Error('Bukti gagal diunggah. Periksa bucket tabaruk1-bukti dan izin Storage Supabase.')}
+                    payload.bukti_url=SUPABASE_URL+'/storage/v1/object/public/tabaruk1-bukti/'+objectName;
+                    const response=await fetch(SUPABASE_URL+'/rest/v1/pendaftaran_tabaruk1',{
+                        method:'POST',
+                        headers:{'Content-Type':'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,Prefer:'return=minimal'},
+                        body:JSON.stringify(payload)
+                    });
+                    if(!response.ok){const detail=await response.text();console.error('Supabase insert:',response.status,detail);throw new Error('Data gagal disimpan ('+response.status+'). Pastikan tabel dan kebijakan Supabase sudah dibuat.')}
+                    document.getElementById('success-name').textContent=payload.nama;
+                    form.classList.add('hidden');
+                    const panel=document.getElementById('success-panel');panel.classList.remove('hidden');panel.focus();
+                    setTimeout(()=>{window.location.href=WHATSAPP_GROUP},2500);
+                }catch(error){
+                    status.className='mt-4 min-h-6 text-sm font-semibold text-[#9d2929]';
+                    status.textContent=error.message||'Pendaftaran belum terkirim. Periksa koneksi dan coba lagi.';
+                }finally{
+                    submitButton.disabled=false;submitButton.removeAttribute('aria-busy');
+                }
             });
+
         </script>
     </body>
 </html>
