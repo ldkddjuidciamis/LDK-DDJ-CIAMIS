@@ -354,17 +354,17 @@
                     const objectName=Date.now()+'-'+safeName;
                     const upload=await fetch(SUPABASE_URL+'/storage/v1/object/tabaruk1-bukti/'+objectName,{
                         method:'POST',
-                        headers:{apikey:SUPABASE_PUBLISHABLE_KEY,'Content-Type':file.type,'x-upsert':'false'},
+                        headers:{apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:'Bearer '+SUPABASE_PUBLISHABLE_KEY,'Content-Type':file.type,'x-upsert':'false'},
                         body:file
                     });
                     if(!upload.ok){const detail=await upload.text();console.error('Storage upload:',upload.status,detail);throw new Error('Bukti gagal diunggah. Periksa bucket tabaruk1-bukti dan izin Storage Supabase.')}
                     payload.bukti_url=SUPABASE_URL+'/storage/v1/object/public/tabaruk1-bukti/'+objectName;
                     const response=await fetch(SUPABASE_URL+'/rest/v1/pendaftaran_tabaruk1',{
                         method:'POST',
-                        headers:{'Content-Type':'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,Prefer:'return=minimal'},
+                        headers:{'Content-Type':'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:'Bearer '+SUPABASE_PUBLISHABLE_KEY,Prefer:'return=minimal'},
                         body:JSON.stringify(payload)
                     });
-                    if(!response.ok){const detail=await response.text();console.error('Supabase insert:',response.status,detail);throw new Error('Data gagal disimpan ('+response.status+'). Pastikan tabel dan kebijakan Supabase sudah dibuat.')}
+                    if(!response.ok){const detail=await response.text();console.error('Supabase insert:',response.status,detail);throw new Error('Data gagal disimpan ('+response.status+'): '+detail)}
                     document.getElementById('success-name').textContent=payload.nama;
                     form.classList.add('hidden');
                     const panel=document.getElementById('success-panel');panel.classList.remove('hidden');panel.focus();
